@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog y Guías Náuticas | Club de Yates Palmira Topolobampo</title>
+<meta name="description" content="Guías de navegación al Mar de Cortés, trámites de zarpe en México y qué hacer en Topolobampo. Blog de Marina Palmira."/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="es_MX"/>
+<meta property="og:title" content="Blog y Guías Náuticas | Club de Yates Palmira Topolobampo"/>
+<meta property="og:description" content="Guías de navegación al Mar de Cortés, trámites de zarpe en México y qué hacer en Topolobampo. Blog de Marina Palmira."/>
+<link rel="canonical" href="https://marinapalmiratopo.com/blog.html"/>
+<link rel="alternate" hreflang="es" href="https://marinapalmiratopo.com/blog.html"/>
+<link rel="alternate" hreflang="en" href="https://marinapalmiratopo.com/en/blog.html"/>
+<link rel="alternate" hreflang="x-default" href="https://marinapalmiratopo.com/blog.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0D2340;--gold:#B8903A;--gold-light:#D4A84B;--text:#2C3E50;--muted:#6B7A8D;--light:#F7F9FC;--white:#FFF;--border:#E2E8F0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.6}
+.topbar{background:var(--navy);color:rgba(255,255,255,.75);font-size:.72rem;letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center;padding:.4rem 5%;flex-wrap:wrap;gap:.5rem}
+.topbar a{color:var(--gold-light);text-decoration:none}
+.topbar .coords{font-family:monospace}
+nav.mainnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.75rem 5%;background:rgba(255,255,255,.98);border-bottom:1px solid var(--border);box-shadow:0 1px 10px rgba(0,0,0,.05)}
+.nav-logo img{height:48px;width:auto;display:block}
+.nav-menu{display:flex;list-style:none;gap:.25rem;align-items:center}
+.nav-menu>li{position:relative}
+.nav-menu>li>a{display:block;padding:.6rem .8rem;color:var(--text);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{color:var(--gold)}
+.nav-menu>li.has-drop>a::after{content:' ▾';font-size:.6rem}
+.dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border);border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.1);min-width:230px;padding:.4rem 0;opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s;list-style:none;z-index:50}
+.nav-menu>li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:block;padding:.55rem 1.1rem;color:var(--text);text-decoration:none;font-size:.82rem;transition:.15s}
+.dropdown a:hover{background:var(--light);color:var(--gold)}
+.nav-reserve{background:var(--gold);color:#fff!important;padding:.55rem 1.2rem!important;border-radius:3px;font-weight:600!important}
+.nav-reserve:hover{background:var(--gold-light)}
+.hamburger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--navy)}
+section{padding:5rem 5%}
+.eyebrow{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;font-weight:600}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;line-height:1.2;color:var(--navy);margin-bottom:1rem}
+.sec-body{color:var(--muted);font-size:.95rem;line-height:1.85;max-width:820px}
+.divider{width:2.5rem;height:2px;background:var(--gold);margin-bottom:1.25rem}
+.center{text-align:center}
+.center .divider{margin-left:auto;margin-right:auto}
+.center .sec-body{margin:0 auto}
+.btn-gold{display:inline-block;background:var(--gold);color:#fff;padding:.85rem 2.25rem;border-radius:3px;text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-outline{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:.8rem 2rem;border-radius:3px;text-decoration:none;font-size:.83rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:.2s}
+.btn-outline:hover{background:var(--gold);color:#fff}
+.page-hero{position:relative;height:42vh;min-height:300px;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,35,64,.4),rgba(13,35,64,.65))}
+.page-hero-content{position:relative;z-index:2;text-align:center;padding:0 5%}
+.page-hero-content .eyebrow{color:var(--gold-light)}
+.page-hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;color:#fff;line-height:1.15}
+.breadcrumb{font-size:.75rem;color:rgba(255,255,255,.7);margin-top:.75rem}
+.breadcrumb a{color:var(--gold-light);text-decoration:none}
+footer{background:var(--navy);padding:3rem 5% 2rem;color:rgba(255,255,255,.6)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+.footer-logo img{height:44px;filter:brightness(0) invert(1);margin-bottom:1rem}
+.footer-col h5{color:#fff;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
+.footer-col a{display:block;color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;padding:.25rem 0;transition:color .2s}
+.footer-col a:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem;font-size:.72rem;font-family:monospace}
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(10,22,40,.82);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:1.5rem}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:#fff;border-radius:6px;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(20px);transition:transform .3s;box-shadow:0 24px 64px rgba(0,0,0,.3)}
+.modal-overlay.open .modal-box{transform:translateY(0)}
+.modal-close{position:absolute;top:1rem;right:1rem;width:2.25rem;height:2.25rem;border-radius:50%;background:var(--light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.05rem;font-weight:700;color:var(--navy);z-index:10;transition:.2s}
+.modal-close:hover{background:var(--gold);color:#fff}
+.modal-body{padding:2rem}
+.modal-eyebrow{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:600}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.cot-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.25rem}
+.cot-grid .full{grid-column:1/-1}
+.fg{display:flex;flex-direction:column;gap:.3rem}
+.fg label{font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.fg input,.fg select,.fg textarea{background:var(--light);border:1px solid var(--border);color:var(--text);padding:.65rem .85rem;font-family:'Inter',sans-serif;font-size:.88rem;border-radius:3px;outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--navy)}
+.fg textarea{resize:vertical;min-height:85px}
+.checkbox-group{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.25rem}
+.checkbox-item{display:flex;align-items:center;gap:.4rem;font-size:.85rem;cursor:pointer}
+.checkbox-item input{accent-color:var(--navy);width:1rem;height:1rem}
+.wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;width:3.5rem;height:3.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.45);transition:transform .2s;text-decoration:none}
+.wa-float svg{width:3.5rem;height:3.5rem}
+.wa-float:hover{transform:scale(1.1)}
+.wa-tooltip{position:absolute;right:4rem;background:#1a1a2e;color:#fff;font-size:.75rem;font-weight:500;padding:.35rem .75rem;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+.wa-float:hover .wa-tooltip{opacity:1}
+@media(max-width:900px){
+.nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.1);gap:0}
+.nav-menu.open{display:flex}
+.nav-menu>li{width:100%}
+.dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;padding-left:1rem}
+.hamburger{display:block}
+.footer-grid{grid-template-columns:1fr;gap:1.75rem}
+.cot-grid{grid-template-columns:1fr}
+section{padding:3.5rem 4%}
+}
+</style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Marina","name":"Club de Yates Palmira Topolobampo","alternateName":"Marina Palmira Topolobampo","description":"Marina náutica en Topolobampo, Sinaloa desde 2010. 42 slips con servicios para embarcaciones de hasta 120 pies. Hotel, restaurante y seguridad 24/7.","url":"https://marinapalmiratopo.com","telephone":"+52-668-816-3970","email":"promocion@puertotopolobampo.com.mx","foundingDate":"2010","openingHours":"Mo-Sa 08:00-18:00","address":{"@type":"PostalAddress","addressLocality":"Topolobampo","addressRegion":"Sinaloa","postalCode":"81390","addressCountry":"MX"},"geo":{"@type":"GeoCoordinates","latitude":25.5972,"longitude":-109.0478},"hasMap":"https://maps.google.com/?q=Topolobampo+Marina+Palmira"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://marinapalmiratopo.com/index.html"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://marinapalmiratopo.com/blog.html"}]}
+</script>
+</head>
+<body><div class="topbar">
+  <span class="coords">LAT: 25°35'N &nbsp;·&nbsp; LONG: 109°02'W</span>
+  <span>📞 <a href="tel:+526688163970">+52 (668) 816-3970</a> &nbsp;·&nbsp; ✉️ <a href="mailto:promocion@puertotopolobampo.com.mx">promocion@puertotopolobampo.com.mx</a> &nbsp;·&nbsp; <a href="en/blog.html" style="font-weight:700;letter-spacing:.1em">🌐 EN</a></span>
+</div>
+<nav class="mainnav">
+  <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="Club de Yates Palmira Topolobampo"/></a>
+  <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')">☰</button>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html">Home</a></li>
+    <li class="has-drop">
+      <a href="la-marina.html">La Marina</a>
+      <ul class="dropdown">
+        <li><a href="la-marina.html">Acerca de</a></li>
+        <li><a href="contacto.html#mapa">Ubicación y mapa</a></li>
+      </ul>
+    </li>
+    <li class="has-drop">
+      <a href="servicios.html">Servicios</a>
+      <ul class="dropdown">
+        <li><a href="servicios.html">Amenidades de la marina</a></li>
+        <li><a href="servicios.html#hotel">Hotel Marina Topolobampo</a></li>
+      </ul>
+    </li>
+    <li><a href="galeria.html">Galería</a></li>
+    <li><a href="renta-yates.html">Renta de Yates</a></li>
+    <li class="has-drop">
+      <a href="precios.html">Reservaciones</a>
+      <ul class="dropdown">
+        <li><a href="#" onclick="openModal('modal-cotizacion');return false;">Solicitar reservación</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="precios.html#requisitos">Requisitos de documentos</a></li>
+      </ul>
+    </li>
+    <li><a href="contacto.html">Contáctenos</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="#" onclick="openModal('modal-cotizacion');return false;" class="nav-reserve">Reservar</a></li>
+  </ul>
+</nav>
+<div class="page-hero" style="background-image:url('img/beach.jpg')">
+  <div class="page-hero-content">
+    <p class="eyebrow">Guías y recursos</p>
+    <h1>Blog</h1>
+    <p class="breadcrumb"><a href="index.html">Home</a> / Blog</p>
+  </div>
+</div>
+
+<section>
+  <div class="center">
+    <p class="eyebrow">Información para navegar mejor</p>
+    <div class="divider"></div>
+    <h2 class="sec-title">Últimas guías</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.75rem;margin-top:3rem">
+    <article style="border:1px solid var(--border);border-radius:4px;overflow:hidden">
+      <img src="img/port.jpg" alt="Canal de Topolobampo" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block"/>
+      <div style="padding:1.5rem">
+        <p style="font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:600">Guía de navegación</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:.6rem;line-height:1.4">Cómo llegar a Topolobampo navegando desde La Paz y Mazatlán</h3>
+        <p style="font-size:.84rem;color:var(--muted);line-height:1.7">Ruta, waypoints, condiciones de viento estacionales y qué esperar al entrar al Canal de Topolobampo — el más profundo del noroeste mexicano.</p>
+        <a href="#" style="display:inline-block;margin-top:.85rem;font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:600">Leer guía →</a>
+      </div>
+    </article>
+    <article style="border:1px solid var(--border);border-radius:4px;overflow:hidden">
+      <img src="img/town.jpg" alt="Topolobampo" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block"/>
+      <div style="padding:1.5rem">
+        <p style="font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:600">Destino</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:.6rem;line-height:1.4">Qué hacer en Topolobampo: la guía náutica completa</h3>
+        <p style="font-size:.84rem;color:var(--muted);line-height:1.7">Delfines, ballenas azules, pesca de marlín, Isla Farallón y el acceso al Cañón del Cobre. Con tiempos y estacionalidad.</p>
+        <a href="#" style="display:inline-block;margin-top:.85rem;font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:600">Leer guía →</a>
+      </div>
+    </article>
+    <article style="border:1px solid var(--border);border-radius:4px;overflow:hidden">
+      <img src="img/sunset.jpg" alt="Zarpe desde Topolobampo" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block"/>
+      <div style="padding:1.5rem">
+        <p style="font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:600">Trámites náuticos</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:.6rem;line-height:1.4">Zarpe en México: documentos que necesitas en 2026</h3>
+        <p style="font-size:.84rem;color:var(--muted);line-height:1.7">Capitanía de Puerto Topolobampo, SEMAR, TIP y permisos de pesca para navegantes nacionales e internacionales.</p>
+        <a href="#" style="display:inline-block;margin-top:.85rem;font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:600">Leer guía →</a>
+      </div>
+    </article>
+  </div>
+  <div class="center" style="margin-top:3rem">
+    <p class="sec-body" style="margin:0 auto 1.5rem">Próximamente más guías sobre navegación en el Mar de Cortés, mantenimiento de embarcaciones y vida en Topolobampo.</p>
+  </div>
+</section>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-logo">
+      <img src="img/logo.png" alt="Club de Yates Palmira"/>
+      <p style="font-size:.82rem;line-height:1.7">Club de Yates Palmira Topolobampo. Marina náutica del Mar de Cortés desde 2010. Topolobampo, Ahome, Sinaloa, México.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navegación</h5>
+      <a href="index.html">Home</a>
+      <a href="la-marina.html">La Marina</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="galeria.html">Galería</a>
+      <a href="renta-yates.html">Renta de Yates</a>
+      <a href="precios.html">Precios</a>
+      <a href="blog.html">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <a href="tel:+526688163970">+52 (668) 816-3970</a>
+      <a href="mailto:promocion@puertotopolobampo.com.mx">promocion@puertotopolobampo.com.mx</a>
+      <a href="https://hotelmarinatopo.com" target="_blank" rel="noopener">Hotel Marina Topolobampo</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>LAT: 25°35'N · LONG: 109°02'W</span>
+    <span>© 2026 Club de Yates Palmira Topolobampo · Todos los derechos reservados</span>
+  </div>
+</footer><div class="modal-overlay" id="modal-cotizacion" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-cotizacion')">✕</button>
+    <div class="modal-body">
+      <p class="modal-eyebrow">Reservaciones · Tarifas 2026</p>
+      <h3 class="modal-title">Solicitar reservación / cotización</h3>
+      <p style="font-size:.88rem;color:var(--muted)">Completa el formulario y te respondemos en menos de 24 horas.</p>
+      <div class="cot-grid">
+        <div class="fg"><label>Tipo de embarcación</label><select><option value="">Seleccionar…</option><option>Lancha / panga</option><option>Velero</option><option>Yate a motor</option><option>Crucero</option><option>Embarcación comercial</option></select></div>
+        <div class="fg"><label>Tamaño / eslora</label><select><option value="">Seleccionar…</option><option>Hasta 19 pies</option><option>20 – 24 pies</option><option>25 – 29 pies</option><option>30 – 39 pies</option><option>40 – 59 pies</option><option>60 – 99 pies</option><option>100 – 150 pies</option></select></div>
+        <div class="fg"><label>Fecha de atraco</label><input type="date"/></div>
+        <div class="fg"><label>Fecha de zarpe</label><input type="date"/></div>
+        <div class="fg full"><label>Tipo de servicio</label><select><option value="">Seleccionar…</option><option>Bahía húmeda (atraque en agua)</option><option>Bahía seca (almacenamiento en tierra)</option><option>Hangar</option></select></div>
+        <div class="fg full"><label>Servicios adicionales (selección múltiple)</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox"/> Agua</label>
+            <label class="checkbox-item"><input type="checkbox"/> Electricidad</label>
+            <label class="checkbox-item"><input type="checkbox"/> Diésel marino</label>
+            <label class="checkbox-item"><input type="checkbox"/> Mantenimiento</label>
+            <label class="checkbox-item"><input type="checkbox"/> Paquete Hotel Marina</label>
+          </div>
+        </div>
+        <div class="fg"><label>Nombre de la embarcación</label><input type="text" placeholder="Ej. Libertad II"/></div>
+        <div class="fg"><label>Nombre del capitán</label><input type="text" placeholder="Nombre completo"/></div>
+        <div class="fg"><label>Teléfono con WhatsApp</label><input type="tel" placeholder="+52 (___) ___-____"/></div>
+        <div class="fg"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com"/></div>
+        <div class="fg full"><button class="btn-gold" style="width:100%">Enviar solicitud</button></div>
+      </div>
+    </div>
+  </div>
+</div><a href="https://wa.me/526688163970?text=Hola%2C%20me%20interesa%20reservar%20un%20lugar%20en%20Marina%20Palmira%20Topolobampo" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.494 2.031 7.806L0 32l8.418-2.008A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0z" fill="#25D366"/>
+    <path d="M23.79 19.93c-.322-.161-1.906-.941-2.201-1.048-.295-.107-.51-.161-.724.161-.215.322-.83 1.048-1.018 1.263-.188.215-.376.242-.698.081-.322-.161-1.36-.501-2.59-1.598-.957-.854-1.603-1.908-1.791-2.23-.188-.322-.02-.496.141-.656.146-.145.322-.376.483-.564.161-.188.215-.322.322-.537.107-.215.054-.403-.027-.564-.081-.161-.724-1.746-.992-2.39-.261-.628-.527-.543-.724-.553-.188-.009-.403-.011-.618-.011-.215 0-.564.081-.859.403-.295.322-1.126 1.101-1.126 2.685s1.153 3.115 1.314 3.33c.161.215 2.269 3.464 5.497 4.857.768.332 1.368.53 1.835.678.771.245 1.473.21 2.028.127.619-.092 1.906-.779 2.175-1.532.269-.752.269-1.396.188-1.532-.079-.134-.295-.215-.617-.376z" fill="#fff"/>
+  </svg>
+  <span class="wa-tooltip">¿Dudas? Escríbenos</span>
+</a>
+<script>
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+function closeOnOverlay(e,el){if(e.target===el){el.classList.remove('open');document.body.style.overflow=''}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));document.body.style.overflow=''}});
+</script>
+</body>
+</html>
