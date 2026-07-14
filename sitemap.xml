@@ -128,4 +128,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://marinapalmiratopo.com/blog/como-llegar-topolobampo-navegando.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marinapalmiratopo.com/blog/que-hacer-en-topolobampo-guia-nautica.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marinapalmiratopo.com/blog/zarpe-mexico-documentos-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
