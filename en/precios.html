@@ -19,13 +19,13 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Google+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#0D2340;--gold:#B8903A;--gold-light:#D4A84B;--text:#2C3E50;--muted:#6B7A8D;--light:#F7F9FC;--white:#FFF;--border:#E2E8F0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.6}
-.topbar{background:var(--navy);color:rgba(255,255,255,.75);font-size:.72rem;letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center;padding:.4rem 5%;flex-wrap:wrap;gap:.5rem}
+body{font-family:'Google Sans','Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.6}
+.topbar{background:var(--navy);color:rgba(255,255,255,.82);font-size:.82rem;letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center;padding:.8rem 5%;flex-wrap:wrap;gap:.5rem}
 .topbar a{color:var(--gold-light);text-decoration:none}
 .topbar .coords{font-family:monospace}
 nav.mainnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.75rem 5%;background:rgba(255,255,255,.98);border-bottom:1px solid var(--border);box-shadow:0 1px 10px rgba(0,0,0,.05)}
@@ -45,12 +45,12 @@ nav.mainnav{position:sticky;top:0;z-index:100;display:flex;align-items:center;ju
 section{padding:5rem 5%}
 .eyebrow{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;font-weight:600}
 .sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;line-height:1.2;color:var(--navy);margin-bottom:1rem}
-.sec-body{color:var(--muted);font-size:.95rem;line-height:1.85;max-width:820px}
+.sec-body{color:var(--muted);font-size:1.08rem;line-height:1.85;max-width:820px}
 .divider{width:2.5rem;height:2px;background:var(--gold);margin-bottom:1.25rem}
 .center{text-align:center}
 .center .divider{margin-left:auto;margin-right:auto}
 .center .sec-body{margin:0 auto}
-.btn-gold{display:inline-block;background:var(--gold);color:#fff;padding:.85rem 2.25rem;border-radius:3px;text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-gold{display:inline-block;background:var(--gold);color:#fff;padding:.85rem 2.25rem;border-radius:3px;text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;border:none;cursor:pointer;font-family:'Google Sans','Inter',sans-serif}
 .btn-gold:hover{background:var(--gold-light)}
 .btn-outline{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:.8rem 2rem;border-radius:3px;text-decoration:none;font-size:.83rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:.2s}
 .btn-outline:hover{background:var(--gold);color:#fff}
@@ -65,7 +65,7 @@ footer{background:var(--navy);padding:3rem 5% 2rem;color:rgba(255,255,255,.6)}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
 .footer-logo img{height:44px;filter:brightness(0) invert(1);margin-bottom:1rem}
 .footer-col h5{color:#fff;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
-.footer-col a{display:block;color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;padding:.25rem 0;transition:color .2s}
+.footer-col a{display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem;padding:.25rem 0;transition:color .2s}
 .footer-col a:hover{color:var(--gold-light)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem;font-size:.72rem;font-family:monospace}
 .modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(10,22,40,.82);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:1.5rem}
@@ -81,7 +81,7 @@ footer{background:var(--navy);padding:3rem 5% 2rem;color:rgba(255,255,255,.6)}
 .cot-grid .full{grid-column:1/-1}
 .fg{display:flex;flex-direction:column;gap:.3rem}
 .fg label{font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.fg input,.fg select,.fg textarea{background:var(--light);border:1px solid var(--border);color:var(--text);padding:.65rem .85rem;font-family:'Inter',sans-serif;font-size:.88rem;border-radius:3px;outline:none;transition:border-color .2s}
+.fg input,.fg select,.fg textarea{background:var(--light);border:1px solid var(--border);color:var(--text);padding:.65rem .85rem;font-family:'Google Sans','Inter',sans-serif;font-size:.88rem;border-radius:3px;outline:none;transition:border-color .2s}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--navy)}
 .fg textarea{resize:vertical;min-height:85px}
 .checkbox-group{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.25rem}
@@ -167,7 +167,7 @@ section{padding:3.5rem 4%}
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem;margin-top:3rem">
     <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:1.75rem">
       <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.4rem">Wet Marina · Price per foot in use</p>
-      <div style="font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;color:var(--gold-light)">Desde $22<span style="font-size:.85rem;color:rgba(255,255,255,.5);font-family:'Inter',sans-serif;font-weight:400"> USD/pie · mes</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;color:var(--gold-light)">Desde $22<span style="font-size:.85rem;color:rgba(255,255,255,.5);font-family:'Google Sans','Inter',sans-serif;font-weight:400"> USD/pie · mes</span></div>
       <ul style="list-style:none;margin-top:1rem">
         <li style="font-size:.82rem;color:rgba(255,255,255,.6);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)">Up to 39' — $22.00 USD</li>
         <li style="font-size:.82rem;color:rgba(255,255,255,.6);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)">40' a 49' — $24.00 USD</li>
@@ -183,7 +183,7 @@ section{padding:3.5rem 4%}
     <div style="background:rgba(184,144,58,.07);border:1px solid var(--gold);border-radius:4px;padding:1.75rem;position:relative">
       <span style="position:absolute;top:-.7rem;left:1.25rem;background:var(--gold);color:var(--navy);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2px">Most popular</span>
       <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.4rem">Dry Storage · By vessel size</p>
-      <div style="font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;color:var(--gold-light)">Desde $2,290<span style="font-size:.85rem;color:rgba(255,255,255,.5);font-family:'Inter',sans-serif;font-weight:400"> MXN/mes</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;color:var(--gold-light)">Desde $2,290<span style="font-size:.85rem;color:rgba(255,255,255,.5);font-family:'Google Sans','Inter',sans-serif;font-weight:400"> MXN/mes</span></div>
       <ul style="list-style:none;margin-top:1rem">
         <li style="font-size:.82rem;color:rgba(255,255,255,.6);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)">Up to 19' — $2,290.00 MXN</li>
         <li style="font-size:.82rem;color:rgba(255,255,255,.6);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)">20' a 24' — $2,580.00 MXN</li>
@@ -194,7 +194,7 @@ section{padding:3.5rem 4%}
     </div>
     <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:1.75rem">
       <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.4rem">Hangars & Extra Services</p>
-      <div style="font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;color:var(--gold-light)">$10,780<span style="font-size:.85rem;color:rgba(255,255,255,.5);font-family:'Inter',sans-serif;font-weight:400"> MXN/mes</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;color:var(--gold-light)">$10,780<span style="font-size:.85rem;color:rgba(255,255,255,.5);font-family:'Google Sans','Inter',sans-serif;font-weight:400"> MXN/mes</span></div>
       <ul style="list-style:none;margin-top:1rem">
         <li style="font-size:.82rem;color:rgba(255,255,255,.6);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)">Hangar space — $10,780 MXN/month</li>
         <li style="font-size:.82rem;color:rgba(255,255,255,.6);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07)">Power — $0.53 USD per kw</li>
@@ -218,27 +218,27 @@ section{padding:3.5rem 4%}
     <div style="border:1px solid var(--border);border-radius:4px;padding:2rem">
       <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1rem">🇲🇽 Mexican vessels</h3>
       <ul style="list-style:none">
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Registration certificate</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Valid insurance policy</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Maritime safety certificate</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Invoice or title of ownership</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Official ID</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Proof of address (max. 3 months old)</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ 3 contact phone numbers</li>
-        <li style="padding:.4rem 0;font-size:.85rem;color:var(--muted)">✓ Signed contract</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Registration certificate</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Valid insurance policy</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Maritime safety certificate</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Invoice or title of ownership</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Official ID</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Proof of address (max. 3 months old)</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ 3 contact phone numbers</li>
+        <li style="padding:.4rem 0;font-size:.95rem;color:var(--muted)">✓ Signed contract</li>
       </ul>
     </div>
     <div style="border:1px solid var(--border);border-radius:4px;padding:2rem">
       <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1rem">🇺🇸 U.S. vessels</h3>
       <ul style="list-style:none">
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Temporary Import Permit (TIP)</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Valid insurance policy</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Maritime safety certificate</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Invoice or title of ownership</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Official ID</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ Proof of address (max. 3 months old)</li>
-        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted)">✓ 3 contact phone numbers</li>
-        <li style="padding:.4rem 0;font-size:.85rem;color:var(--muted)">✓ Signed contract</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Temporary Import Permit (TIP)</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Valid insurance policy</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Maritime safety certificate</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Invoice or title of ownership</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Official ID</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ Proof of address (max. 3 months old)</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.95rem;color:var(--muted)">✓ 3 contact phone numbers</li>
+        <li style="padding:.4rem 0;font-size:.95rem;color:var(--muted)">✓ Signed contract</li>
       </ul>
     </div>
   </div>
@@ -277,7 +277,7 @@ section{padding:3.5rem 4%}
     <div class="modal-body">
       <p class="modal-eyebrow">Reservations · 2026 Rates</p>
       <h3 class="modal-title">Request a reservation / quote</h3>
-      <p style="font-size:.88rem;color:var(--muted)">Fill out the form and we'll get back to you within 24 hours.</p>
+      <p style="font-size:.97rem;color:var(--muted)">Fill out the form and we'll get back to you within 24 hours.</p>
       <div class="cot-grid">
         <div class="fg"><label>Vessel type</label><select><option value="">Select…</option><option>Skiff / panga</option><option>Sailboat</option><option>Motor yacht</option><option>Cruiser</option><option>Commercial vessel</option></select></div>
         <div class="fg"><label>Size / length</label><select><option value="">Select…</option><option>Up to 19 feet</option><option>20 – 24 feet</option><option>25 – 29 feet</option><option>30 – 39 feet</option><option>40 – 59 feet</option><option>60 – 99 feet</option><option>100 – 150 feet</option></select></div>
