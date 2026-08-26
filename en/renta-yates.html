@@ -128,6 +128,30 @@ section{padding:3.5rem 4%}
 .yc-dot{width:.5rem;height:.5rem;border-radius:50%;background:rgba(255,255,255,.55);border:none;cursor:pointer;transition:background .2s;padding:0}
 .yc-dot.active{background:#fff}
 .yc-counter{position:absolute;top:.85rem;right:.85rem;background:rgba(13,35,64,.75);color:#fff;font-size:.7rem;padding:.25rem .6rem;border-radius:12px;z-index:5;font-family:'Google Sans','Inter',sans-serif;letter-spacing:.05em}
+
+/* Flota v2: video + carrusel */
+.yate-carousel{position:relative;overflow:hidden;aspect-ratio:16/9;background:var(--navy)}
+.yate-track{display:flex;height:100%;transition:transform .45s ease}
+.yate-slide{min-width:100%;height:100%;background-size:cover;background-position:center;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.yate-slide video{width:100%;height:100%;object-fit:cover;background:#000}
+.yc-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.92);border:none;cursor:pointer;width:2.5rem;height:2.5rem;border-radius:50%;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.25);z-index:5}
+.yc-prev{left:.85rem}.yc-next{right:.85rem}
+.yc-counter{position:absolute;top:.85rem;right:.85rem;background:rgba(13,35,64,.78);color:#fff;font-size:.72rem;padding:.28rem .65rem;border-radius:12px;z-index:5;letter-spacing:.05em}
+.video-badge{position:absolute;top:.85rem;left:.85rem;background:var(--gold);color:#fff;font-size:.68rem;font-weight:700;padding:.28rem .65rem;border-radius:12px;z-index:5;letter-spacing:.08em;text-transform:uppercase}
+.yates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.75rem;margin-top:3rem}
+.yate-card{border:1px solid var(--border);border-radius:6px;overflow:hidden;cursor:pointer;transition:box-shadow .25s,transform .25s;background:#fff}
+.yate-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.13);transform:translateY(-2px)}
+.yate-img{position:relative;aspect-ratio:16/10;background-size:cover;background-position:center}
+.play-badge{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.play-badge span{width:3.2rem;height:3.2rem;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--navy);box-shadow:0 4px 16px rgba(0,0,0,.3);padding-left:.2rem}
+.yate-body{padding:1.4rem 1.5rem}
+.yate-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.yate-meta{display:flex;gap:1.1rem;font-size:.9rem;color:var(--muted);margin-bottom:.7rem;flex-wrap:wrap}
+.yate-cta{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.amen-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:1.25rem 0}
+.amen-item{display:flex;align-items:center;gap:.5rem;font-size:.94rem;color:var(--muted)}
+.amen-item .ok{color:var(--gold);font-weight:700}
+@media(max-width:600px){.amen-list{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Marina","name":"Club de Yates Palmira Topolobampo","alternateName":"Marina Palmira Topolobampo","description":"Marina in Topolobampo, Sinaloa since 2010. 42 full-service slips for vessels up to 120 feet. Hotel, restaurant and 24/7 security.","url":"https://marinapalmiratopo.com","telephone":"+52-668-816-3970","email":"promocion@puertotopolobampo.com.mx","foundingDate":"2010","openingHours":"Mo-Sa 08:00-18:00","address":{"@type":"PostalAddress","addressLocality":"Topolobampo","addressRegion":"Sinaloa","postalCode":"81390","addressCountry":"MX"},"geo":{"@type":"GeoCoordinates","latitude":25.5972,"longitude":-109.0478},"hasMap":"https://maps.google.com/?q=Topolobampo+Marina+Palmira"}
@@ -137,6 +161,7 @@ section{padding:3.5rem 4%}
 </script>
 </head>
 <body>
+
 <div class="topbar">
   <span class="coords">LAT: 25°35'N &nbsp;·&nbsp; LONG: 109°02'W</span>
   <span>📞 <a href="tel:+526688163970">+52 (668) 816-3970</a> &nbsp;·&nbsp; ✉️ <a href="mailto:promocion@puertotopolobampo.com.mx">promocion@puertotopolobampo.com.mx</a> &nbsp;·&nbsp; <a href="../renta-yates.html" style="font-weight:700;letter-spacing:.1em">🌐 ES</a></span>
@@ -178,9 +203,9 @@ section{padding:3.5rem 4%}
 
 <div class="page-hero" style="background-image:url('../img/sunset.jpg')">
   <div class="page-hero-content">
-    <p class="eyebrow">Experiences en el Mar de Cortés</p>
+    <p class="eyebrow">Experiences on the Sea of Cortez</p>
     <h1>Yacht Rentals</h1>
-    <p class="breadcrumb"><a href="index.html">Home</a> / Yacht Rentals</p>
+    <p class="breadcrumb"><a href="../index.html">Home</a> / Yacht Rentals</p>
   </div>
 </div>
 
@@ -188,185 +213,305 @@ section{padding:3.5rem 4%}
   <div class="center">
     <p class="eyebrow">Experience the bay</p>
     <div class="divider"></div>
-    <h2 class="sec-title">Our available fleet</h2>
-    <p class="sec-body">Topolobampo Bay cruises, Farallón Island, dolphin watching, sport fishing and private events. Click each vessel to see its amenities.</p>
+    <h2 class="sec-title">Our fleet: 7 vessels</h2>
+    <p class="sec-body">Topolobampo Bay cruises, Farallón Island, dolphin watching, fishing and private events. Click each vessel to see its video, photos and amenities. Pricing and availability on request.</p>
   </div>
-
   <div class="yates-grid">
-
-    <div class="yate-card" onclick="openModal('yate-1')">
-      <div class="yate-img" style="background-image:url('../img/sunset.jpg')">
-        <span class="yate-price-tag">$8,500 MXN / 4 hrs</span>
+    <div class="yate-card" onclick="openModal('yate-options')">
+      <div class="yate-img" style="background-image:url('../img/yates/options/foto-01.webp')">
+        <div class="play-badge"><span>▶</span></div>
       </div>
       <div class="yate-body">
-        <h3 class="yate-name">Palmira I</h3>
-        <div class="yate-meta">
-          <span>👥 Up to 12 passengers</span>
-          <span>📏 42 pies</span>
-        </div>
-        <span class="yate-cta">View amenities →</span>
+        <h3 class="yate-name">Options</h3>
+        <div class="yate-meta"><span>👥 Up to 15 passengers</span><span>🎬 14 fotos + video</span></div>
+        <span class="yate-cta">Watch video & photos →</span>
       </div>
     </div>
-
-    <div class="yate-card" onclick="openModal('yate-2')">
-      <div class="yate-img" style="background-image:url('../img/beach.jpg')">
-        <span class="yate-price-tag">$12,000 MXN / 4 hrs</span>
+    <div class="yate-card" onclick="openModal('yate-camaron-de-oro')">
+      <div class="yate-img" style="background-image:url('../img/yates/camaron-de-oro/foto-01.webp')">
+        <div class="play-badge"><span>▶</span></div>
       </div>
       <div class="yate-body">
-        <h3 class="yate-name">Mar de Cortés</h3>
-        <div class="yate-meta">
-          <span>👥 Up to 18 passengers</span>
-          <span>📏 55 pies</span>
-        </div>
-        <span class="yate-cta">View amenities →</span>
+        <h3 class="yate-name">Camarón de Oro</h3>
+        <div class="yate-meta"><span>👥 Up to 15 passengers</span><span>🎬 11 fotos + video</span></div>
+        <span class="yate-cta">Watch video & photos →</span>
       </div>
     </div>
-
-    <div class="yate-card" onclick="openModal('yate-3')">
-      <div class="yate-img" style="background-image:url('../img/port.jpg')">
-        <span class="yate-price-tag">$5,500 MXN / 4 hrs</span>
+    <div class="yate-card" onclick="openModal('yate-don-jose')">
+      <div class="yate-img" style="background-image:url('../img/yates/don-jose/foto-01.webp')">
+        <div class="play-badge"><span>▶</span></div>
       </div>
       <div class="yate-body">
-        <h3 class="yate-name">Farallón Express</h3>
-        <div class="yate-meta">
-          <span>👥 Up to 8 passengers</span>
-          <span>📏 28 pies</span>
-        </div>
-        <span class="yate-cta">View amenities →</span>
+        <h3 class="yate-name">Don José</h3>
+        <div class="yate-meta"><span>👥 Capacity on request</span><span>🎬 7 fotos + video</span></div>
+        <span class="yate-cta">Watch video & photos →</span>
       </div>
     </div>
-
+    <div class="yate-card" onclick="openModal('yate-eroka')">
+      <div class="yate-img" style="background-image:url('../img/yates/eroka/foto-01.webp')">
+        <div class="play-badge"><span>▶</span></div>
+      </div>
+      <div class="yate-body">
+        <h3 class="yate-name">Eroka</h3>
+        <div class="yate-meta"><span>👥 Up to 18 passengers</span><span>🎬 9 fotos + video</span></div>
+        <span class="yate-cta">Watch video & photos →</span>
+      </div>
+    </div>
+    <div class="yate-card" onclick="openModal('yate-ronkchon')">
+      <div class="yate-img" style="background-image:url('../img/yates/ronkchon/foto-01.webp')">
+        <div class="play-badge"><span>▶</span></div>
+      </div>
+      <div class="yate-body">
+        <h3 class="yate-name">Ron Kchon</h3>
+        <div class="yate-meta"><span>👥 Up to 15 passengers</span><span>🎬 7 fotos + video</span></div>
+        <span class="yate-cta">Watch video & photos →</span>
+      </div>
+    </div>
+    <div class="yate-card" onclick="openModal('yate-beegees')">
+      <div class="yate-img" style="background-image:url('../img/yates/beegees/foto-01.webp')">
+        <div class="play-badge"><span>▶</span></div>
+      </div>
+      <div class="yate-body">
+        <h3 class="yate-name">BeeGees</h3>
+        <div class="yate-meta"><span>👥 Capacity on request</span><span>🎬 5 fotos + video</span></div>
+        <span class="yate-cta">Watch video & photos →</span>
+      </div>
+    </div>
+    <div class="yate-card" onclick="openModal('yate-dreams')">
+      <div class="yate-img" style="background-image:url('../img/yates/dreams/foto-01.webp')">
+        <div class="play-badge"><span>▶</span></div>
+      </div>
+      <div class="yate-body">
+        <h3 class="yate-name">Dreams</h3>
+        <div class="yate-meta"><span>👥 Up to 13 passengers</span><span>🎬 11 fotos + video</span></div>
+        <span class="yate-cta">Watch video & photos →</span>
+      </div>
+    </div>
   </div>
-
   <div class="center" style="margin-top:3rem">
     <p class="sec-body" style="margin:0 auto 1.25rem">Own a yacht and want to rent it through the marina?</p>
     <a href="contacto.html" class="btn-outline">Register your vessel</a>
   </div>
 </section>
 
-<!-- MODAL YATE 1 -->
-<div class="modal-overlay" id="yate-1" onclick="closeOnOverlay(event,this)">
+<div class="modal-overlay" id="yate-options" onclick="closeOnOverlay(event,this)">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('yate-1')">✕</button>
-    <div class="yate-carousel">
-      <div class="yate-track" id="yc-track-1">
-        <div class="yate-slide" style="background-image:url('../img/sunset.jpg')"></div>
-        <div class="yate-slide" style="background-image:url('../img/beach.jpg')"></div>
-        <div class="yate-slide" style="background-image:url('../img/port.jpg')"></div>
-        <div class="yate-slide" style="background-image:url('../img/hotel.jpg')"></div>
+    <button class="modal-close" onclick="closeModal('yate-options')">✕</button>
+    <div class="yate-carousel" data-yc="options">
+      <div class="yate-track" id="yc-track-options">
+        <div class="yate-slide"><video controls playsinline preload="metadata" poster="../img/yates/options/foto-01.webp"><source src="../img/yates/options/video.mp4" type="video/mp4"></video></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-01.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-02.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-03.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-04.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-05.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-06.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-07.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-08.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-09.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-10.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-11.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-12.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-13.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/options/foto-14.webp')"></div>
       </div>
-      <span class="yc-counter" id="yc-counter-1">1 / 4</span>
-      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove(1,-1)">←</button>
-      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove(1,1)">→</button>
-      <div class="yc-dots" id="yc-dots-1">
-        <button class="yc-dot active" onclick="event.stopPropagation();ycGo(1,0)"></button>
-        <button class="yc-dot" onclick="event.stopPropagation();ycGo(1,1)"></button>
-        <button class="yc-dot" onclick="event.stopPropagation();ycGo(1,2)"></button>
-        <button class="yc-dot" onclick="event.stopPropagation();ycGo(1,3)"></button>
-      </div>
+      <span class="video-badge">▶ Video</span>
+      <span class="yc-counter" id="yc-counter-options">1 / 15</span>
+      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove('options',-1)">←</button>
+      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove('options',1)">→</button>
     </div>
     <div class="modal-body">
-      <p class="modal-eyebrow">Yate · 42 pies · Up to 12 passengers</p>
-      <h3 class="modal-title">Palmira I</h3>
-      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">Ideal for family bay cruises, dolphin watching and Sea of Cortez sunsets. Captain and deckhand included.</p>
-      <div class="amen-list">
-        <div class="amen-item"><span class="ok">✓</span> Drinking water on board</div>
-        <div class="amen-item"><span class="ok">✓</span> Full bathroom</div>
-        <div class="amen-item"><span class="ok">✓</span> Cabin / stateroom</div>
-        <div class="amen-item"><span class="ok">✓</span> Equipped galley</div>
-        <div class="amen-item"><span class="ok">✓</span> Shaded area</div>
-        <div class="amen-item"><span class="ok">✓</span> Sound system</div>
-        <div class="amen-item"><span class="ok">✓</span> Cooler</div>
-        <div class="amen-item"><span class="ok">✓</span> Life jackets</div>
-      </div>
-      <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:1.25rem">$8,500 MXN <span style="font-size:.85rem;color:var(--muted);font-family:'Google Sans','Inter',sans-serif;font-weight:400">/ 4 hours · Extra hour $1,800 MXN</span></p>
-      <a href="https://wa.me/526688163970?text=Hola%2C%20me%20interesa%20rentar%20el%20yate%20Palmira%20I" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Rent this yacht</a>
+      <p class="modal-eyebrow">Palmira Fleet · Up to 15 passengers</p>
+      <h3 class="modal-title">Options</h3>
+      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">Full-featured yacht for large groups: lounge, cabin and galley on board. Floating mat and jet ski available for separate rental.</p>
+      <div class="amen-list"><div class="amen-item"><span class="ok">✓</span> Lounge</div><div class="amen-item"><span class="ok">✓</span> Bathroom</div><div class="amen-item"><span class="ok">✓</span> Sound system</div><div class="amen-item"><span class="ok">✓</span> Cabin</div><div class="amen-item"><span class="ok">✓</span> Galley</div><div class="amen-item"><span class="ok">✓</span> Floating mat (extra rental)</div><div class="amen-item"><span class="ok">✓</span> Jet ski available (extra rental)</div><div class="amen-item"><span class="ok">✓</span> Captain included</div></div>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:1rem">💬 Pricing and availability on request</p>
+      <a href="https://wa.me/526688163970?text=Hello%2C%20I%27m%20interested%20in%20renting%20Options" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Ask on WhatsApp</a>
     </div>
   </div>
 </div>
-
-<!-- MODAL YATE 2 -->
-<div class="modal-overlay" id="yate-2" onclick="closeOnOverlay(event,this)">
+<div class="modal-overlay" id="yate-camaron-de-oro" onclick="closeOnOverlay(event,this)">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('yate-2')">✕</button>
-    <div class="yate-carousel">
-      <div class="yate-track" id="yc-track-2">
-        <div class="yate-slide" style="background-image:url('../img/beach.jpg')"></div>
-        <div class="yate-slide" style="background-image:url('../img/sunset.jpg')"></div>
-        <div class="yate-slide" style="background-image:url('../img/town.jpg')"></div>
-        <div class="yate-slide" style="background-image:url('../img/hotel.jpg')"></div>
+    <button class="modal-close" onclick="closeModal('yate-camaron-de-oro')">✕</button>
+    <div class="yate-carousel" data-yc="camaron-de-oro">
+      <div class="yate-track" id="yc-track-camaron-de-oro">
+        <div class="yate-slide"><video controls playsinline preload="metadata" poster="../img/yates/camaron-de-oro/foto-01.webp"><source src="../img/yates/camaron-de-oro/video.mp4" type="video/mp4"></video></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-01.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-02.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-03.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-04.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-05.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-06.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-07.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-08.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-09.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-10.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/camaron-de-oro/foto-11.webp')"></div>
       </div>
-      <span class="yc-counter" id="yc-counter-2">1 / 4</span>
-      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove(2,-1)">←</button>
-      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove(2,1)">→</button>
-      <div class="yc-dots" id="yc-dots-2">
-        <button class="yc-dot active" onclick="event.stopPropagation();ycGo(2,0)"></button>
-        <button class="yc-dot" onclick="event.stopPropagation();ycGo(2,1)"></button>
-        <button class="yc-dot" onclick="event.stopPropagation();ycGo(2,2)"></button>
-        <button class="yc-dot" onclick="event.stopPropagation();ycGo(2,3)"></button>
-      </div>
+      <span class="video-badge">▶ Video</span>
+      <span class="yc-counter" id="yc-counter-camaron-de-oro">1 / 12</span>
+      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove('camaron-de-oro',-1)">←</button>
+      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove('camaron-de-oro',1)">→</button>
     </div>
     <div class="modal-body">
-      <p class="modal-eyebrow">Yate · 55 pies · Up to 18 passengers</p>
-      <h3 class="modal-title">Mar de Cortés</h3>
-      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">Our most spacious vessel. Perfect for private events, celebrations and large groups. Two decks, captain and two crew included.</p>
-      <div class="amen-list">
-        <div class="amen-item"><span class="ok">✓</span> Drinking water on board</div>
-        <div class="amen-item"><span class="ok">✓</span> 2 full bathrooms</div>
-        <div class="amen-item"><span class="ok">✓</span> 2 cabins</div>
-        <div class="amen-item"><span class="ok">✓</span> Full galley</div>
-        <div class="amen-item"><span class="ok">✓</span> Upper deck (flybridge)</div>
-        <div class="amen-item"><span class="ok">✓</span> Premium sound system</div>
-        <div class="amen-item"><span class="ok">✓</span> On-board grill</div>
-        <div class="amen-item"><span class="ok">✓</span> Life jackets</div>
-      </div>
-      <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:1.25rem">$12,000 MXN <span style="font-size:.85rem;color:var(--muted);font-family:'Google Sans','Inter',sans-serif;font-weight:400">/ 4 hours · Extra hour $2,500 MXN</span></p>
-      <a href="https://wa.me/526688163970?text=Hola%2C%20me%20interesa%20rentar%20el%20yate%20Mar%20de%20Cort%C3%A9s" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Rent this yacht</a>
+      <p class="modal-eyebrow">Palmira Fleet · Up to 15 passengers</p>
+      <h3 class="modal-title">Camarón de Oro</h3>
+      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">The most complete experience: lounge, cabin, galley and floating mat included in the rental. Ideal for family celebrations.</p>
+      <div class="amen-list"><div class="amen-item"><span class="ok">✓</span> Lounge</div><div class="amen-item"><span class="ok">✓</span> Bathroom</div><div class="amen-item"><span class="ok">✓</span> Sound system</div><div class="amen-item"><span class="ok">✓</span> Cabin</div><div class="amen-item"><span class="ok">✓</span> Galley</div><div class="amen-item"><span class="ok">✓</span> Floating mat included</div><div class="amen-item"><span class="ok">✓</span> Captain included</div><div class="amen-item"><span class="ok">✓</span> Life jackets</div></div>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:1rem">💬 Pricing and availability on request</p>
+      <a href="https://wa.me/526688163970?text=Hello%2C%20I%27m%20interested%20in%20renting%20Camarón%20de%20Oro" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Ask on WhatsApp</a>
     </div>
   </div>
 </div>
-
-<!-- MODAL YATE 3 -->
-<div class="modal-overlay" id="yate-3" onclick="closeOnOverlay(event,this)">
+<div class="modal-overlay" id="yate-don-jose" onclick="closeOnOverlay(event,this)">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('yate-3')">✕</button>
-    <div class="yate-carousel">
-      <div class="yate-track" id="yc-track-3">
-        <div class="yate-slide" style="background-image:url('../img/port.jpg')"></div>
-        <div class="yate-slide" style="background-image:url('../img/beach.jpg')"></div>
-        <div class="yate-slide" style="background-image:url('../img/sunset.jpg')"></div>
-        <div class="yate-slide" style="background-image:url('../img/town.jpg')"></div>
+    <button class="modal-close" onclick="closeModal('yate-don-jose')">✕</button>
+    <div class="yate-carousel" data-yc="don-jose">
+      <div class="yate-track" id="yc-track-don-jose">
+        <div class="yate-slide"><video controls playsinline preload="metadata" poster="../img/yates/don-jose/foto-01.webp"><source src="../img/yates/don-jose/video.mp4" type="video/mp4"></video></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/don-jose/foto-01.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/don-jose/foto-02.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/don-jose/foto-03.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/don-jose/foto-04.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/don-jose/foto-05.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/don-jose/foto-06.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/don-jose/foto-07.webp')"></div>
       </div>
-      <span class="yc-counter" id="yc-counter-3">1 / 4</span>
-      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove(3,-1)">←</button>
-      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove(3,1)">→</button>
-      <div class="yc-dots" id="yc-dots-3">
-        <button class="yc-dot active" onclick="event.stopPropagation();ycGo(3,0)"></button>
-        <button class="yc-dot" onclick="event.stopPropagation();ycGo(3,1)"></button>
-        <button class="yc-dot" onclick="event.stopPropagation();ycGo(3,2)"></button>
-        <button class="yc-dot" onclick="event.stopPropagation();ycGo(3,3)"></button>
-      </div>
+      <span class="video-badge">▶ Video</span>
+      <span class="yc-counter" id="yc-counter-don-jose">1 / 8</span>
+      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove('don-jose',-1)">←</button>
+      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove('don-jose',1)">→</button>
     </div>
     <div class="modal-body">
-      <p class="modal-eyebrow">Lancha · 28 pies · Up to 8 passengers</p>
-      <h3 class="modal-title">Farallón Express</h3>
-      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">Fast and agile, ideal for reaching Farallón Island, sport fishing and dolphin tours. The most affordable option in the fleet. Captain included.</p>
-      <div class="amen-list">
-        <div class="amen-item"><span class="ok">✓</span> Bottled water</div>
-        <div class="amen-item"><span class="ok">✓</span> Marine head</div>
-        <div class="amen-item"><span class="ok">✓</span> Shade canopy</div>
-        <div class="amen-item"><span class="ok">✓</span> Snorkel gear</div>
-        <div class="amen-item"><span class="ok">✓</span> Fishing rods (optional)</div>
-        <div class="amen-item"><span class="ok">✓</span> Cooler</div>
-        <div class="amen-item"><span class="ok">✓</span> Life jackets</div>
-        <div class="amen-item"><span class="ok">✓</span> Radio VHF</div>
-      </div>
-      <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:1.25rem">$5,500 MXN <span style="font-size:.85rem;color:var(--muted);font-family:'Google Sans','Inter',sans-serif;font-weight:400">/ 4 hours · Extra hour $1,200 MXN</span></p>
-      <a href="https://wa.me/526688163970?text=Hola%2C%20me%20interesa%20rentar%20la%20lancha%20Farall%C3%B3n%20Express" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Rent this yacht</a>
+      <p class="modal-eyebrow">Palmira Fleet · Capacity on request</p>
+      <h3 class="modal-title">Don José</h3>
+      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">A classic of the Palmira fleet for bay cruises. Ask us about capacity and amenities.</p>
+      <div class="amen-list"><div class="amen-item"><span class="ok">✓</span> Captain included</div><div class="amen-item"><span class="ok">✓</span> Life jackets</div><div class="amen-item"><span class="ok">✓</span> Full specs on request</div></div>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:1rem">💬 Pricing and availability on request</p>
+      <a href="https://wa.me/526688163970?text=Hello%2C%20I%27m%20interested%20in%20renting%20Don%20José" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Ask on WhatsApp</a>
     </div>
   </div>
 </div>
-
+<div class="modal-overlay" id="yate-eroka" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('yate-eroka')">✕</button>
+    <div class="yate-carousel" data-yc="eroka">
+      <div class="yate-track" id="yc-track-eroka">
+        <div class="yate-slide"><video controls playsinline preload="metadata" poster="../img/yates/eroka/foto-01.webp"><source src="../img/yates/eroka/video.mp4" type="video/mp4"></video></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/eroka/foto-01.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/eroka/foto-02.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/eroka/foto-03.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/eroka/foto-04.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/eroka/foto-05.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/eroka/foto-06.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/eroka/foto-07.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/eroka/foto-08.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/eroka/foto-09.webp')"></div>
+      </div>
+      <span class="video-badge">▶ Video</span>
+      <span class="yc-counter" id="yc-counter-eroka">1 / 10</span>
+      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove('eroka',-1)">←</button>
+      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove('eroka',1)">→</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-eyebrow">Palmira Fleet · Up to 18 passengers</p>
+      <h3 class="modal-title">Eroka</h3>
+      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">The largest capacity in the fleet: 18 passengers with lounge, cabin and galley. Perfect for events and large groups.</p>
+      <div class="amen-list"><div class="amen-item"><span class="ok">✓</span> Lounge</div><div class="amen-item"><span class="ok">✓</span> Bathroom</div><div class="amen-item"><span class="ok">✓</span> Sound system</div><div class="amen-item"><span class="ok">✓</span> Cabin</div><div class="amen-item"><span class="ok">✓</span> Galley</div><div class="amen-item"><span class="ok">✓</span> Captain included</div><div class="amen-item"><span class="ok">✓</span> Life jackets</div></div>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:1rem">💬 Pricing and availability on request</p>
+      <a href="https://wa.me/526688163970?text=Hello%2C%20I%27m%20interested%20in%20renting%20Eroka" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Ask on WhatsApp</a>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="yate-ronkchon" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('yate-ronkchon')">✕</button>
+    <div class="yate-carousel" data-yc="ronkchon">
+      <div class="yate-track" id="yc-track-ronkchon">
+        <div class="yate-slide"><video controls playsinline preload="metadata" poster="../img/yates/ronkchon/foto-01.webp"><source src="../img/yates/ronkchon/video.mp4" type="video/mp4"></video></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/ronkchon/foto-01.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/ronkchon/foto-02.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/ronkchon/foto-03.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/ronkchon/foto-04.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/ronkchon/foto-05.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/ronkchon/foto-06.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/ronkchon/foto-07.webp')"></div>
+      </div>
+      <span class="video-badge">▶ Video</span>
+      <span class="yc-counter" id="yc-counter-ronkchon">1 / 8</span>
+      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove('ronkchon',-1)">←</button>
+      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove('ronkchon',1)">→</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-eyebrow">Palmira Fleet · Up to 15 passengers</p>
+      <h3 class="modal-title">Ron Kchon</h3>
+      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">Spacious and comfortable, with lounge, sound system and shaded stern area. For relaxed cruises with the whole family.</p>
+      <div class="amen-list"><div class="amen-item"><span class="ok">✓</span> Lounge</div><div class="amen-item"><span class="ok">✓</span> Bathroom</div><div class="amen-item"><span class="ok">✓</span> Sound system</div><div class="amen-item"><span class="ok">✓</span> Shaded stern area</div><div class="amen-item"><span class="ok">✓</span> Life jackets</div><div class="amen-item"><span class="ok">✓</span> Captain included</div></div>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:1rem">💬 Pricing and availability on request</p>
+      <a href="https://wa.me/526688163970?text=Hello%2C%20I%27m%20interested%20in%20renting%20Ron%20Kchon" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Ask on WhatsApp</a>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="yate-beegees" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('yate-beegees')">✕</button>
+    <div class="yate-carousel" data-yc="beegees">
+      <div class="yate-track" id="yc-track-beegees">
+        <div class="yate-slide"><video controls playsinline preload="metadata" poster="../img/yates/beegees/foto-01.webp"><source src="../img/yates/beegees/video.mp4" type="video/mp4"></video></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/beegees/foto-01.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/beegees/foto-02.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/beegees/foto-03.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/beegees/foto-04.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/beegees/foto-05.webp')"></div>
+      </div>
+      <span class="video-badge">▶ Video</span>
+      <span class="yc-counter" id="yc-counter-beegees">1 / 6</span>
+      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove('beegees',-1)">←</button>
+      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove('beegees',1)">→</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-eyebrow">Palmira Fleet · Capacity on request</p>
+      <h3 class="modal-title">BeeGees</h3>
+      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">Part of the Palmira fleet for Topolobampo Bay cruises. Ask us about capacity and amenities.</p>
+      <div class="amen-list"><div class="amen-item"><span class="ok">✓</span> Captain included</div><div class="amen-item"><span class="ok">✓</span> Life jackets</div><div class="amen-item"><span class="ok">✓</span> Full specs on request</div></div>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:1rem">💬 Pricing and availability on request</p>
+      <a href="https://wa.me/526688163970?text=Hello%2C%20I%27m%20interested%20in%20renting%20BeeGees" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Ask on WhatsApp</a>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="yate-dreams" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('yate-dreams')">✕</button>
+    <div class="yate-carousel" data-yc="dreams">
+      <div class="yate-track" id="yc-track-dreams">
+        <div class="yate-slide"><video controls playsinline preload="metadata" poster="../img/yates/dreams/foto-01.webp"><source src="../img/yates/dreams/video.mp4" type="video/mp4"></video></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-01.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-02.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-03.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-04.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-05.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-06.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-07.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-08.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-09.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-10.webp')"></div>
+        <div class="yate-slide" style="background-image:url('../img/yates/dreams/foto-11.webp')"></div>
+      </div>
+      <span class="video-badge">▶ Video</span>
+      <span class="yc-counter" id="yc-counter-dreams">1 / 12</span>
+      <button class="yc-btn yc-prev" onclick="event.stopPropagation();ycMove('dreams',-1)">←</button>
+      <button class="yc-btn yc-next" onclick="event.stopPropagation();ycMove('dreams',1)">→</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-eyebrow">Palmira Fleet · Up to 13 passengers</p>
+      <h3 class="modal-title">Dreams</h3>
+      <p style="font-size:.98rem;color:var(--muted);line-height:1.78">Agile and fun, with on-board sound and jet ski available for rent. A favorite for younger groups.</p>
+      <div class="amen-list"><div class="amen-item"><span class="ok">✓</span> Bathroom</div><div class="amen-item"><span class="ok">✓</span> Sound system</div><div class="amen-item"><span class="ok">✓</span> Jet ski available (extra rental)</div><div class="amen-item"><span class="ok">✓</span> Captain included</div><div class="amen-item"><span class="ok">✓</span> Life jackets</div></div>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:1rem">💬 Pricing and availability on request</p>
+      <a href="https://wa.me/526688163970?text=Hello%2C%20I%27m%20interested%20in%20renting%20Dreams" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;display:block">Ask on WhatsApp</a>
+    </div>
+  </div>
+</div>
 <footer>
   <div class="footer-grid">
     <div class="footer-logo">
@@ -433,47 +578,36 @@ section{padding:3.5rem 4%}
   </svg>
   <span class="wa-tooltip">¿Dudas? Write to us</span>
 </a>
-
 <script>
-// Carrusel de yates
-const ycState = {1:0, 2:0, 3:0};
-const ycTotal = {1:4, 2:4, 3:4};
-function ycUpdate(n){
-  document.getElementById('yc-track-'+n).style.transform = 'translateX(' + (-ycState[n]*100) + '%)';
-  document.getElementById('yc-counter-'+n).textContent = (ycState[n]+1) + ' / ' + ycTotal[n];
-  document.querySelectorAll('#yc-dots-'+n+' .yc-dot').forEach((d,i)=>d.classList.toggle('active', i===ycState[n]));
+const ycState = {};
+function ycMove(id,dir){
+  const track = document.getElementById('yc-track-'+id);
+  const n = track.children.length;
+  ycState[id] = ((ycState[id]||0) + dir + n) % n;
+  track.style.transform = 'translateX(' + (-ycState[id]*100) + '%)';
+  document.getElementById('yc-counter-'+id).textContent = (ycState[id]+1) + ' / ' + n;
+  track.querySelectorAll('video').forEach(v=>v.pause());
 }
-function ycMove(n,dir){
-  ycState[n] = (ycState[n] + dir + ycTotal[n]) % ycTotal[n];
-  ycUpdate(n);
-}
-function ycGo(n,idx){
-  ycState[n] = idx;
-  ycUpdate(n);
-}
-// Swipe táctil en carruseles de yates
-document.querySelectorAll('.yate-carousel').forEach((car, i) => {
-  const n = i + 1;
-  let startX = 0;
-  car.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+document.querySelectorAll('.yate-carousel').forEach(car => {
+  const id = car.dataset.yc;
+  let sx = 0;
+  car.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
   car.addEventListener('touchend', e => {
-    const diff = e.changedTouches[0].clientX - startX;
-    if (Math.abs(diff) > 45) ycMove(n, diff < 0 ? 1 : -1);
+    const d = e.changedTouches[0].clientX - sx;
+    if (Math.abs(d) > 45) ycMove(id, d < 0 ? 1 : -1);
   }, {passive:true});
 });
-// Navegación con flechas del teclado cuando un modal de yate está abierto
 document.addEventListener('keydown', e => {
-  const openYate = document.querySelector('.modal-overlay.open[id^="yate-"]');
-  if (!openYate) return;
-  const n = parseInt(openYate.id.split('-')[1]);
-  if (e.key === 'ArrowLeft') ycMove(n, -1);
-  if (e.key === 'ArrowRight') ycMove(n, 1);
+  const open = document.querySelector('.modal-overlay.open[id^="yate-"]');
+  if (!open) return;
+  const id = open.id.replace('yate-','');
+  if (e.key === 'ArrowLeft') ycMove(id,-1);
+  if (e.key === 'ArrowRight') ycMove(id,1);
 });
-
 function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
-function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
-function closeOnOverlay(e,el){if(e.target===el){el.classList.remove('open');document.body.style.overflow=''}}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));document.body.style.overflow=''}});
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';document.querySelectorAll('#'+id+' video').forEach(v=>v.pause())}
+function closeOnOverlay(e,el){if(e.target===el){el.classList.remove('open');document.body.style.overflow='';el.querySelectorAll('video').forEach(v=>v.pause())}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.open').forEach(m=>{m.classList.remove('open');m.querySelectorAll('video').forEach(v=>v.pause())});document.body.style.overflow=''}});
 </script>
 </body>
 </html>
