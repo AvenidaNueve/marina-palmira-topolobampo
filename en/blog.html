@@ -249,7 +249,7 @@ section{padding:3.5rem 4%}
         <div class="fg"><label>Captain name</label><input type="text" placeholder="Full name"/></div>
         <div class="fg"><label>WhatsApp phone number</label><input type="tel" placeholder="+52 (___) ___-____"/></div>
         <div class="fg"><label>Email</label><input type="email" placeholder="correo@ejemplo.com"/></div>
-        <div class="fg full"><button class="btn-gold" style="width:100%">Send request</button></div>
+        <div class="fg full"><button class="btn-gold" style="width:100%" onclick="submitCotizacion(this)">Send request</button></div>
       </div>
     </div>
   </div>
@@ -266,5 +266,64 @@ function closeModal(id){document.getElementById(id).classList.remove('open');doc
 function closeOnOverlay(e,el){if(e.target===el){el.classList.remove('open');document.body.style.overflow=''}}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));document.body.style.overflow=''}});
 </script>
+<script>
+const WEBHOOK_URL = 'https://n8n.avenida9.com/webhook/marina-palmira-lead';
+const SITE_LANG = document.documentElement.lang || 'es';
+const MSG = SITE_LANG === 'en'
+  ? { sending:'Sending…', ok:'✓ Request sent! We will reply within 24 hours.', err:'Could not send. Please try WhatsApp (green button).', okBtn:'✓ Sent' }
+  : { sending:'Enviando…', ok:'✓ ¡Solicitud enviada! Te respondemos en menos de 24 horas.', err:'No se pudo enviar. Intenta por WhatsApp (botón verde).', okBtn:'✓ Enviada' };
+
+function showFormStatus(btn, ok){
+  let p = btn.parentElement.querySelector('.form-status');
+  if(!p){ p = document.createElement('p'); p.className='form-status'; p.style.cssText='margin-top:.6rem;font-size:.88rem;text-align:center;font-weight:500'; btn.parentElement.appendChild(p); }
+  p.textContent = ok ? MSG.ok : MSG.err;
+  p.style.color = ok ? '#1e7d4e' : '#b3403a';
+}
+
+async function postLead(data, btn){
+  const orig = btn.textContent;
+  btn.textContent = MSG.sending; btn.disabled = true; btn.style.opacity = .7;
+  try {
+    const r = await fetch(WEBHOOK_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+    if(!r.ok) throw new Error(r.status);
+    btn.textContent = MSG.okBtn; btn.style.background = '#1e7d4e'; btn.style.opacity = 1;
+    showFormStatus(btn, true);
+  } catch(e){
+    btn.textContent = orig; btn.disabled = false; btn.style.opacity = 1;
+    showFormStatus(btn, false);
+  }
+}
+
+function submitCotizacion(btn){
+  const m = document.getElementById('modal-cotizacion');
+  const sel = m.querySelectorAll('select');
+  const dates = m.querySelectorAll('input[type="date"]');
+  const texts = m.querySelectorAll('input[type="text"]');
+  const checks = [...m.querySelectorAll('.checkbox-item input:checked')].map(c => c.parentElement.textContent.trim());
+  postLead({
+    form_type:'cotizacion', lang: SITE_LANG,
+    tipo_embarcacion: sel[0]?.value || '', eslora: sel[1]?.value || '', tipo_servicio: sel[2]?.value || '',
+    fecha_atraco: dates[0]?.value || '', fecha_zarpe: dates[1]?.value || '',
+    servicios_adicionales: checks,
+    nombre_embarcacion: texts[0]?.value || '', capitan: texts[1]?.value || '',
+    whatsapp: m.querySelector('input[type="tel"]')?.value || '',
+    correo: m.querySelector('input[type="email"]')?.value || ''
+  }, btn);
+}
+
+function submitContacto(btn){
+  const c = btn.closest('div');
+  const wrap = c.parentElement;
+  postLead({
+    form_type:'contacto', lang: SITE_LANG,
+    nombre: wrap.querySelector('input[type="text"]')?.value || '',
+    whatsapp: wrap.querySelector('input[type="tel"]')?.value || '',
+    correo: wrap.querySelector('input[type="email"]')?.value || '',
+    asunto: wrap.querySelector('select')?.value || '',
+    mensaje: wrap.querySelector('textarea')?.value || ''
+  }, btn);
+}
+</script>
+
 </body>
 </html>
