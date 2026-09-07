@@ -143,4 +143,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url><loc>https://marinapalmiratopo.com/aviso-privacidad.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://marinapalmiratopo.com/terminos.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://marinapalmiratopo.com/en/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://marinapalmiratopo.com/en/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
