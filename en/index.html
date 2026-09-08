@@ -482,5 +482,17 @@ function submitContacto(btn){
 }
 </script>
 
+<script>
+const rsState = {};
+function rsMove(e, id, dir){
+  e.preventDefault(); e.stopPropagation();
+  const t = document.getElementById('rs-' + id);
+  const n = t.children.length;
+  rsState[id] = ((rsState[id] || 0) + dir + n) % n;
+  t.style.transform = 'translateX(-' + (rsState[id] * 100) + '%)';
+  document.querySelectorAll('#rsd-' + id + ' span').forEach((d, i) => d.classList.toggle('on', i === rsState[id]));
+  return false;
+}
+</script>
 </body>
 </html>
